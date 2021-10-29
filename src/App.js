@@ -8,12 +8,14 @@ import SignUp from './pages/SignUp';
 import Heal from './pages/Heal';
 import Board from './pages/Board';
 import axios from 'axios';
+import Loading from './pages/LoadingPage';
 
 
 function App() {
 
   const [isLogin, setIsLogin] = useState(false);
   const [userinfo, setUserinfo] = useState(null);
+  const [ready, setReady] = useState(false)
   const history = useHistory();
 
   const isAuthenticated = () => {
@@ -38,6 +40,11 @@ function App() {
           },
           { withCredentials: true })
           .then((res) => {
+            console.log(res)
+            setReady(true)
+        setTimeout(()=>{
+          setReady(false)
+        },3000)
             setIsLogin(true);
             setUserinfo(res.data.userInfo)
           })
@@ -50,6 +57,10 @@ function App() {
       {},
       { withCredentials: true })
       .then(() => {
+        setReady(true)
+        setTimeout(()=>{
+          setReady(false)
+        },1000)
         setUserinfo(null);
         setIsLogin(false);
         history.push('/');
@@ -62,9 +73,11 @@ function App() {
 
   useEffect(() => {
     isAuthenticated();
+    console.log(userinfo)
   }, []);
 
-  return (
+  return ready ? <Loading/> : (
+    
     <div >
       <Switch>
         <Route exact path = '/'>
