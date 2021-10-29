@@ -13,7 +13,7 @@ import axios from 'axios';
 function App() {
 
   const [isLogin, setIsLogin] = useState(false);
-  const [userinfo, setUserinfo] = useState({});
+  const [userinfo, setUserinfo] = useState(null);
   const history = useHistory();
 
   const isAuthenticated = () => {
@@ -38,7 +38,6 @@ function App() {
           },
           { withCredentials: true })
           .then((res) => {
-            console.log(res)
             setIsLogin(true);
             setUserinfo(res.data.userInfo)
           })
@@ -60,24 +59,6 @@ function App() {
   const handleResponseSuccess = () => {
     isAuthenticated();
   };
-
-  // const KAKAO_LOGIN_URL = 'https://kauth.kakao.com/oauth/authorize?client_id=cd907f22e063b6c7cee0fe2befb6140f&redirect_uri=http://localhost:3000/&response_type=code'
-
-  // const kakaoLoginHandler = async () => {
-  //   window.location.assign(KAKAO_LOGIN_URL);
-  //   const authorizationCode = new URL(window.location.href).searchParams.get('code')
-  //   getUserInfo(authorizationCode)
-  // }
-
-  // const getUserInfo = async (authorizationCode) => {
-  //   const res = await axios.post('https://localhost:4000/kakaologin', 
-  //   {
-  //     authorizationCode: authorizationCode
-  //   },
-  //   { withCredentials: true })
-  //   setIsLogin(true);
-  //   setUserinfo(res.data.data.userInfo)
-  // }
 
   useEffect(() => {
     isAuthenticated();

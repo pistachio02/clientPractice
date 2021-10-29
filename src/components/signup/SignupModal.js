@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import axios from 'axios';
 import login from '../../image/login.jpg'
 import Input from '../login/Input'
-import {Link, /* useHistory */ } from 'react-router-dom'
+import {Link, useHistory } from 'react-router-dom'
 import { ModalView, StyledButton} from '../style/styled'
 import './Signup.css'
 
@@ -15,7 +15,7 @@ function SignupModal() {
         passwordCheck: ''
     });
 
-    // const history = useHistory();
+    const history = useHistory();
 
     const handleInputValue = (key) => (e) => {
         setuserinfo({ ...userinfo, [key]: e.target.value });
@@ -32,7 +32,7 @@ function SignupModal() {
             }
         )
         .catch((err)=>console.log(err))
-        // history.push("/login")
+        history.push("/login")
     };
 
     return (

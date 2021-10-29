@@ -22,7 +22,7 @@ function Header({isLogin, userinfo, handleLogout }) {
             <div className="grow"></div>
             <Link to="/heal" className="header-flex-box">Heal</Link>
             <Link to="/board" className="header-flex-box">Board</Link>
-              <div className="header-flex-box" onClick = {openProfile}> {userinfo.nickname} </div>
+              <div className="header-flex-box" onClick = {openProfile}> {userinfo.email} </div>
                   <Menu open = {isOpen}>
                   <H3>
                   {userinfo.nickname}
