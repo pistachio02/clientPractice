@@ -5,6 +5,7 @@ import Input from './Input'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
 import kakao from '../../image/kakao.png'
+import google from '../../image/google.png'
 
 
 function LoginModal({ handleResponseSuccess }) {
@@ -41,6 +42,11 @@ function LoginModal({ handleResponseSuccess }) {
         window.location.assign(KAKAO_LOGIN_URL);
     }
 
+    const GOOGLE_LOGIN_URL = 'https://accounts.google.com/o/oauth2/v2/auth?client_id=1085457130769-nv16h3a5ug5b1fml2467muf8cqevg0t9.apps.googleusercontent.com&redirect_uri=http://localhost:3000/&response_type=code&scope=https://www.googleapis.com/auth/userinfo.profile&include_granted_scopes=true'
+    const googleLoginHandler = async () => {
+        window.location.assign(GOOGLE_LOGIN_URL);
+    }
+
     return (
         <div>
             <ModalView>
@@ -63,6 +69,7 @@ function LoginModal({ handleResponseSuccess }) {
                      <StyledButton onClick={handleLogin}>로그인</StyledButton>
                      <div className = 'social-text'>소셜 계정으로 간편하게 로그인 하세요 !</div>
                      <img src = {kakao} alt = 'social-login' className = 'social-kakao' onClick={kakaoLoginHandler} />
+                     <img src = {google} alt = 'social-login' className = 'social-kakao' onClick={googleLoginHandler} />
                      <p>아직 회원이 아니신가요 ?</p>
                      <Link to = '/signup' className = 'link'><div className = 'move-to-signup'>회원가입하기</div></Link>
                      

@@ -34,17 +34,16 @@ function App() {
        })
     } else {
       axios
-          .post('https://localhost:4000/kakaologin', 
+          .post('https://localhost:4000/oauthlogin', 
           {
             authorizationCode: authorizationCode
           },
           { withCredentials: true })
           .then((res) => {
-            console.log(res)
             setReady(true)
-        setTimeout(()=>{
-          setReady(false)
-        },3000)
+            setTimeout(()=>{
+              setReady(false)
+            },3000)
             setIsLogin(true);
             setUserinfo(res.data.userInfo)
           })
@@ -73,7 +72,6 @@ function App() {
 
   useEffect(() => {
     isAuthenticated();
-    console.log(userinfo)
   }, []);
 
   return ready ? <Loading/> : (
