@@ -71,7 +71,7 @@ function App() {
   };
 
   useEffect(() => {
-    isAuthenticated();
+    isAuthenticated()
   }, []);
 
   return ready ? <Loading/> : (
