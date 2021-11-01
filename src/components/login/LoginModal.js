@@ -42,7 +42,7 @@ function LoginModal({ handleResponseSuccess }) {
         window.location.assign(KAKAO_LOGIN_URL);
     }
 
-    const GOOGLE_LOGIN_URL = 'https://accounts.google.com/o/oauth2/v2/auth?client_id=1085457130769-nv16h3a5ug5b1fml2467muf8cqevg0t9.apps.googleusercontent.com&redirect_uri=http://localhost:3000/&response_type=code&scope=https://www.googleapis.com/auth/userinfo.profile&include_granted_scopes=true'
+    const GOOGLE_LOGIN_URL = 'https://accounts.google.com/o/oauth2/v2/auth?client_id=1085457130769-nv16h3a5ug5b1fml2467muf8cqevg0t9.apps.googleusercontent.com&redirect_uri=http://localhost:3000/&response_type=code&scope=https://www.googleapis.com/auth/userinfo.email&include_granted_scopes=true'
     const googleLoginHandler = async () => {
         window.location.assign(GOOGLE_LOGIN_URL);
     }
