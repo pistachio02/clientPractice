@@ -136,7 +136,7 @@ const BoardView = props => {
                 <div className="list-group-flush">
                     {comments.map(item => 
                         <div key={item.id}>
-                            {item.content} | {item.user_nickname} | {item.createdAt} 
+                            {item.content} || {item.user_nickname} || {item.createdAt} 
                             <button   onClick={() => deleteComment(item.id)}>삭제</button>
                         </div>
                     )}

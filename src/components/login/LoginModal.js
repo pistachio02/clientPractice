@@ -68,8 +68,11 @@ function LoginModal({ handleResponseSuccess }) {
                      />
                      <StyledButton onClick={handleLogin}>로그인</StyledButton>
                      <div className = 'social-text'>소셜 계정으로 간편하게 로그인 하세요 !</div>
-                     <img src = {kakao} alt = 'social-login' className = 'social-kakao' onClick={kakaoLoginHandler} />
-                     <img src = {google} alt = 'social-login' className = 'social-kakao' onClick={googleLoginHandler} />
+                     <div className = 'social-login'>
+                         <img src = {kakao} alt = 'social-login' className = 'social-kakao' onClick={kakaoLoginHandler} />
+                     <img src = {google} alt = 'social-login'className = 'social-google' onClick={googleLoginHandler} />
+                     </div>
+                     
                      <p>아직 회원이 아니신가요 ?</p>
                      <Link to = '/signup' className = 'link'><div className = 'move-to-signup'>회원가입하기</div></Link>
                      

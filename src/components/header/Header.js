@@ -5,7 +5,7 @@ import '../header/Header.css'
 import { Move, Li, Ul, H3, Menu } from '../style/styled'
 
 
-function Header({isLogin, userinfo, handleLogout }) {
+function Header({ isLogin, userinfo, handleLogout }) {
     const [isOpen, setIsOpen] = useState(false)
     const openProfile = () => {
         setIsOpen(!isOpen)

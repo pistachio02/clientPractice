@@ -93,7 +93,7 @@ function App() {
           <Heal/>
         </Route>
         <Route path = '/board'>
-          <Board/>
+          <Board userinfo={userinfo} isLogin={isLogin} handleLogout={handleLogout} />
         </Route>
         <Route path = '/edit'>
           

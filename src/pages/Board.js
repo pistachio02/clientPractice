@@ -8,7 +8,7 @@ import BoardView from './board/BoardView';
 function Board({isLogin, userinfo, handleLogout}) {
     return (
         <div>
-            <Header/>
+            <Header userinfo={userinfo} isLogin={isLogin} handleLogout={handleLogout} />
             <BrowserRouter>
             <Switch>
                 <Route exact path="/board" component={BoardList} userinfo={userinfo} isLogin={isLogin} handleLogout={handleLogout}/>
