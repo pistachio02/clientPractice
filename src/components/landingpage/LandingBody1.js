@@ -1,4 +1,5 @@
 import React from 'react'
+import { Indicator, ScrollDown } from '../style/styled'
 import './LandingBody1.css'
 
 function LandingBody1() {
@@ -6,18 +7,17 @@ function LandingBody1() {
         <div className = 'landing-wrap'>
             <div className = 'landing-text'>
                 <div className = 'touch'>
-          Touch
+          T o u c h
            </div>
-           <p className = 'script'>
-               지친 당신을 위한
-           </p>
-           <p className = 'script2'>
-               유일한 휴식처
-               </p>
+           <p className = 'landing-p'>이미지와 소리로 마음의 안정을 찾아보세요</p>
             </div>
-           
+           <ScrollDown>
+               <Indicator/>
+               <Indicator/>
+               <Indicator/>
+           </ScrollDown>
         </div>
-     
+
     )
 }
 

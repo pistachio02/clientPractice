@@ -20,3 +20,10 @@
 .p{
     margin-left: 20px;
 }
+
+.validation {
+    font-size: 12px;
+    margin-left: 75px;
+    margin-bottom: 10px;
+    color : rgb(243, 73, 73);
+}

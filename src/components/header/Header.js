@@ -1,11 +1,11 @@
 import React, {useState} from 'react'
 import {Link} from 'react-router-dom'
-import touch from '../../image/touch-logo.png'
+import touch from '../../image/tologo2.png'
 import '../header/Header.css'
 import { Move, Li, Ul, H3, Menu } from '../style/styled'
 
 
-function Header({ isLogin, userinfo, handleLogout }) {
+function Header({isLogin, userinfo, handleLogout }) {
     const [isOpen, setIsOpen] = useState(false)
     const openProfile = () => {
         setIsOpen(!isOpen)
@@ -21,8 +21,8 @@ function Header({ isLogin, userinfo, handleLogout }) {
            
             <div className="grow"></div>
             <Link to="/heal" className="header-flex-box">Heal</Link>
-            <Link to="/board" className="header-flex-box">Board</Link>
-              <div className="header-flex-box" onClick = {openProfile}> {userinfo.email} </div>
+            <Link to="/board" className="header-flex-box" >Board</Link>
+              <div className="header-flex-box" onClick = {openProfile}> {userinfo.nickname} </div>
                   <Menu open = {isOpen}>
                   <H3>
                   {userinfo.nickname}

@@ -21,7 +21,7 @@ body{
     
 
 
-      button {
+      .board-button {
         width: 502px;
         
         padding: 0;
@@ -38,11 +38,11 @@ body{
         border-top: none;
       }
       
-      button:hover {
+      .board-button:hover {
         color: #e2dedb;
       }
 
-      input {
+      .board-input {
           font-family: 'Lato', sans-serif;
           font-size: 0.875em;
           width: 470px;

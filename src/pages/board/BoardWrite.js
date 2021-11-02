@@ -90,14 +90,14 @@ const BoardWrite = props => {
             <form className ="boardContainer" onSubmit={submitForm}>
                 <form className="boardHeader1" >
                     {/* <label>제목</label><br/> */}
-                    <input type="text" placeholder="제목을 입력해주세요" value={title} onChange={changeTitle} />
+                    <input className="board-input" type="text" placeholder="제목을 입력해주세요" value={title} onChange={changeTitle} />
                     {/* </form> */}
                     {/* <form className > */}
                     {/* <label>내용</label><br/> */}
                     <textarea rows={8} placeholder="내용을 입력해주세요." value={content} onChange={changeContent} />
                 </form>
                 <div>
-                    <button>확인</button>
+                    <button className="board-button" >확인</button>
                     <Link to="/board"><button>취소</button></Link>
                 </div>
             </form>

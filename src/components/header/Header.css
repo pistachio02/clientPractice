@@ -1,18 +1,17 @@
 .header-background{
     position: sticky;
-    background-color:  rgba(57, 62, 73, 0.5);
+    background-color:  #fff;
 }
 
 .logo{
     cursor: pointer;
-    color: rgb(0, 0, 0);
-    height: 20px;
+    height: 40px;
 }
 
 .header-flex-box{
     padding-right: 20px;
     cursor: pointer;
-    color: #fff;
+    color: #1d1c43;
     text-decoration: none;
     font-weight: 600;
 }
@@ -21,7 +20,7 @@
     display: flex;
     align-items: center;
     padding: 10px;
-    margin-left: 120px;
+    margin-left: 10px;
     margin-right: 20px;
     font-size: 1rem;
 }
@@ -29,12 +28,8 @@
     position: sticky;
    top: 0;
    z-index: 1;
+   background-color:  #fff;
 }
 .grow{
     flex-grow: 10
 }
-
-
-
-
-

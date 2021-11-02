@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 import { ModalView, StyledButton} from '../style/styled'
-import login from '../../image/login.jpg'
 import Input from './Input'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
@@ -9,7 +8,7 @@ import google from '../../image/google.png'
 
 
 function LoginModal({ handleResponseSuccess }) {
-
+    const [isValidationMessage, setIsValidationMessage] = useState('')
     const [userinfo, setuserinfo] = useState({
         email: '',
         password: ''
@@ -31,8 +30,16 @@ function LoginModal({ handleResponseSuccess }) {
                  "Content-Type": "application/json" },
                 withCredentials: true }
           )
-          .then(()=>{
-              handleResponseSuccess()
+          .then((res)=>{
+              if(res.data === 'Invalid E-mail!'){
+                  setIsValidationMessage('등록된 이메일이 아닙니다')
+              }else if (res.data === 'Invalid Password!'){
+                  setIsValidationMessage('비밀번호가 일치하지 않습니다')
+              }else{
+                setIsValidationMessage('')
+                handleResponseSuccess()
+              }
+              
           })
           .catch((err)=>console.log(err))
     };
@@ -50,9 +57,8 @@ function LoginModal({ handleResponseSuccess }) {
     return (
         <div>
             <ModalView>
-               <img src = {login} alt = 'login' className = 'login'/>
                <div>
-                    <h1 className = 'login-h1'> Touch</h1>
+                    <h1 className = 'login-h1'>Touch</h1>
                     <div className = 'login-h2'>Login</div>
                     <Input className = 'email'
                       label="email"
@@ -66,13 +72,13 @@ function LoginModal({ handleResponseSuccess }) {
                     onChange = {handleInputValue("password")}
                     value = {userinfo.password}
                      />
+                     <div className = 'validation'>{isValidationMessage}</div>
                      <StyledButton onClick={handleLogin}>로그인</StyledButton>
                      <div className = 'social-text'>소셜 계정으로 간편하게 로그인 하세요 !</div>
                      <div className = 'social-login'>
                          <img src = {kakao} alt = 'social-login' className = 'social-kakao' onClick={kakaoLoginHandler} />
                      <img src = {google} alt = 'social-login'className = 'social-google' onClick={googleLoginHandler} />
                      </div>
-                     
                      <p>아직 회원이 아니신가요 ?</p>
                      <Link to = '/signup' className = 'link'><div className = 'move-to-signup'>회원가입하기</div></Link>
                      
