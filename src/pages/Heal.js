@@ -4,7 +4,7 @@ import Header from '../components/header/Header'
 function Heal() {
     return (
         <div>
-            <Header/>
+            <Header />
         </div>
     )
 }

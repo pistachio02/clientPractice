@@ -5,13 +5,41 @@ import {Route, Switch, useHistory} from 'react-router-dom'
 import LandingPage from './pages/LandingPage';
 import LoginPage from './pages/LoginPage'
 import SignUp from './pages/SignUp';
-import Heal from './pages/Heal';
 import Board from './pages/Board';
 import axios from 'axios';
 import Loading from './pages/LoadingPage';
 
+import Heal from './pages/mainpage/Heal';
+
+
 
 function App() {
+
+// const handleCardClick = (currentImgs) => {
+// setCurrentImgs(currentImgs)
+
+//     console.log('이미지를 클릭했군요!');
+//     swal({
+//       title:"이잉~ 끼모륑!",
+//       text:"터치 페이지에서 더 즐겁게 감상하세욤!",
+//       icon:"success",
+//       dangerMode: true,
+//     })
+//   };
+
+//   const handleMoveCardClick = (movecurrentImgs) => {
+  
+//     setMoveCurrentImgs(movecurrentImgs)
+//         console.log('이미지를 클릭했군요!');
+//         swal({
+//           title:"이잉~ 끼모륑!",
+//           text:"터치 페이지에서 더 즐겁게 감상하세욤!",
+//           icon:"success",
+//           dangerMode: true,
+//         })
+//       };
+
+
 
   const [isLogin, setIsLogin] = useState(false);
   const [userinfo, setUserinfo] = useState(null);
@@ -90,7 +118,7 @@ function App() {
           <SignUp/>
         </Route>
         <Route path = '/heal'>
-          <Heal/>
+          <Heal userinfo={userinfo} isLogin={isLogin} handleLogout={handleLogout} />
         </Route>
         <Route path = '/board'>
           <Board userinfo={userinfo} isLogin={isLogin} handleLogout={handleLogout} />
