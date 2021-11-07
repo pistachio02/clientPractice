@@ -11,6 +11,7 @@ import Loading from './pages/LoadingPage';
 import Heal from './pages/mainpage/Heal';
 import UserEdit from './pages/UserEdit';
 import Written from './pages/Written';
+import Favorite from './pages/likeimg/Favorite';
 
 function App() {
 
@@ -94,7 +95,7 @@ function App() {
           <UserEdit userinfo={userinfo} isLogin={isLogin} handleLogout={handleLogout} />
         </Route>
         <Route path = '/favorite'>
-          
+          <Favorite userinfo={userinfo} isLogin={isLogin} handleLogout={handleLogout} />
         </Route>
         <Route path = '/written'>
           <Written userinfo={userinfo} isLogin={isLogin} handleLogout={handleLogout}/>

@@ -2,14 +2,12 @@ import React from 'react'
 import '../maincss/Movecss.css'
 
 function MovelistCard({moveimg,handleMoveCardClick}) {
-    
+
     const {image} = moveimg
     return (
         <div key={moveimg.id}>
             <div className="project1">
           <video className="project__img1" 
-          autoPlay="autoPlay" 
-          loop="loop" 
           src={image} alt={moveimg.title} />
             <div className="project__description1">
                 <h3 className="imgtext1">{moveimg.title}</h3>
@@ -23,7 +21,8 @@ function MovelistCard({moveimg,handleMoveCardClick}) {
                 </div>
                 </div>
             </div>
-        </div>  
+        </div>
+        {console.log(moveimg)}
         </div>  
     )
 }
