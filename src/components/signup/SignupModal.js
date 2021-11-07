@@ -92,8 +92,6 @@ function SignupModal() {
               <p>이미 회원 이신가요 ?</p>
               <Link to = '/login' className = 'link'><div className = 'move-to-signup'>로그인 하기</div></Link>
         </div>
-       {console.log(userinfo.email)}
-       {console.log(userinfo.password)}
      </ModalView>   
         </div>
     )

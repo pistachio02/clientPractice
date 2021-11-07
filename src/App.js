@@ -8,38 +8,11 @@ import SignUp from './pages/SignUp';
 import Board from './pages/Board';
 import axios from 'axios';
 import Loading from './pages/LoadingPage';
-
 import Heal from './pages/mainpage/Heal';
-
-
+import UserEdit from './pages/UserEdit';
+import Written from './pages/Written';
 
 function App() {
-
-// const handleCardClick = (currentImgs) => {
-// setCurrentImgs(currentImgs)
-
-//     console.log('이미지를 클릭했군요!');
-//     swal({
-//       title:"이잉~ 끼모륑!",
-//       text:"터치 페이지에서 더 즐겁게 감상하세욤!",
-//       icon:"success",
-//       dangerMode: true,
-//     })
-//   };
-
-//   const handleMoveCardClick = (movecurrentImgs) => {
-  
-//     setMoveCurrentImgs(movecurrentImgs)
-//         console.log('이미지를 클릭했군요!');
-//         swal({
-//           title:"이잉~ 끼모륑!",
-//           text:"터치 페이지에서 더 즐겁게 감상하세욤!",
-//           icon:"success",
-//           dangerMode: true,
-//         })
-//       };
-
-
 
   const [isLogin, setIsLogin] = useState(false);
   const [userinfo, setUserinfo] = useState(null);
@@ -51,31 +24,25 @@ function App() {
 
     if(!authorizationCode){
       axios
-       .get(
-         'https://localhost:4000/auth',
-         { withCredentials: true }
-       )
-       .then((res)=>{
-         setIsLogin(true);
-         setUserinfo(res.data.data.userInfo)
-         history.push('/');
-       })
+          .get('https://localhost:4000/auth', { withCredentials: true })
+          .then((res)=>{
+            setIsLogin(true);
+            setUserinfo(res.data.data.userInfo);
+            // history.push('/');
+          })
     } else {
       axios
-          .post('https://localhost:4000/oauthlogin', 
-          {
-            authorizationCode: authorizationCode
-          },
-          { withCredentials: true })
+          .post('https://localhost:4000/oauthlogin', { authorizationCode: authorizationCode }, { withCredentials: true })
           .then((res) => {
             setReady(true)
             setTimeout(()=>{
               setReady(false)
             },3000)
             setIsLogin(true);
-            setUserinfo(res.data.userInfo)
+            setUserinfo(res.data.userInfo);
+            history.push('/');
           })
-          }
+    }
   };
 
   const handleLogout = () => {
@@ -124,13 +91,13 @@ function App() {
           <Board userinfo={userinfo} isLogin={isLogin} handleLogout={handleLogout} />
         </Route>
         <Route path = '/edit'>
-          
+          <UserEdit userinfo={userinfo} isLogin={isLogin} handleLogout={handleLogout} />
         </Route>
         <Route path = '/favorite'>
           
         </Route>
         <Route path = '/written'>
-          
+          <Written userinfo={userinfo} isLogin={isLogin} handleLogout={handleLogout}/>
         </Route>
       </Switch>
     </div>

@@ -7,7 +7,7 @@ function SignUp() {
     return (
         <div>
             <LandingHome/>
-           <Signup/>
+            <Signup/>
         </div>
     )
 }
