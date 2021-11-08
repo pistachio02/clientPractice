@@ -333,7 +333,7 @@
         margin-left: 185px;
     }
 }
-@media screen and (min-width: 319px) and (max-width: 530px) {
+@media screen and (min-width: 0px) and (max-width: 530px) {
     .background{
         background-color:  #f3f5f7;
         height: 100vh;

@@ -31,3 +31,10 @@
     margin-bottom: 10px;
     color : rgb(243, 73, 73);
 }
+
+.close-icon {
+    margin-left: 300px;
+    margin-top: 20px;
+    font-size: 25px;
+    cursor: pointer;
+}

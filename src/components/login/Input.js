@@ -4,7 +4,7 @@ import styled from "styled-components";
 const InputContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 15px 0;
+  margin: 15px 30px;
   position: relative;
   margin-top: 10px;
   margin-left: 70px;

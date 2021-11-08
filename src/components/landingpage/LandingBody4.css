@@ -365,7 +365,7 @@
     }
 }
 
-@media screen and (min-width: 319px) and (max-width: 425px){
+@media screen and (min-width: 0px) and (max-width: 425px){
     .background4{
         background-color: #eeeef0;
         height: 70vh;

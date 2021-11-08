@@ -6,8 +6,12 @@ import { ModalView, StyledButton} from '../style/styled'
 import './Signup.css'
 import {isEmail, isPassword} from '../utills/isEmail'
 import swal from 'sweetalert'
+import * as GrIcons from 'react-icons/gr'
 
 function SignupModal() {
+    const moveToMain = () => {
+        history.push('/')
+    }
     const [isValidate, setIsValidate] = useState(false)
     const [isValidationMessage, setIsValidationMessage] = useState('')
     const [userinfo, setuserinfo] = useState({
@@ -67,6 +71,9 @@ function SignupModal() {
         <div>
         <ModalView>
         <div>
+            <div className = 'close-icon'>
+                <GrIcons.GrFormClose onClick = {moveToMain}/>
+            </div>
              <div className = 'signin-h1'> Touch</div>
              <div className = 'signin-h2'>Sign Up</div>
              <Input className = 'signin-password'

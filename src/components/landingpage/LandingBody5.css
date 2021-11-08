@@ -247,7 +247,7 @@
 
 }
 
-@media screen and (min-width: 319px) and (max-width: 425px) {
+@media screen and (min-width: 0px) and (max-width: 425px) {
     .background5{
         background-color: #eaeaee;
         height: 190vh;
