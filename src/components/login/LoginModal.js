@@ -6,10 +6,12 @@ import axios from 'axios'
 import kakao from '../../image/kakao.png'
 import google from '../../image/google.png'
 import { useHistory } from 'react-router-dom'
-
+import * as GrIcons from 'react-icons/gr'
 
 function LoginModal({ handleResponseSuccess }) {
-
+    const moveToMain = () => {
+        history.push('/')
+    }
     const history = useHistory()
     const [isValidationMessage, setIsValidationMessage] = useState('')
     const [userinfo, setuserinfo] = useState({
@@ -62,6 +64,9 @@ function LoginModal({ handleResponseSuccess }) {
         <div>
             <ModalView>
                <div>
+               <div className = 'close-icon' onClick = {moveToMain}>
+                <GrIcons.GrFormClose/>
+            </div>
                     <h1 className = 'login-h1'>Touch</h1>
                     <div className = 'login-h2'>Login</div>
                     <Input className = 'email'

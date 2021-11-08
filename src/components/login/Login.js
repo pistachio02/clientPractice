@@ -5,8 +5,7 @@ import LoginModal from './LoginModal'
 import { useHistory } from 'react-router-dom'
 
 function Login({ handleResponseSuccess }) {
-    const history = useHistory();
-    
+
     return (
         <div>
             <ModalBackdrop >

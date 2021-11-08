@@ -8,14 +8,15 @@
 
 .login-h1{
     margin-left: 85px;
-    margin-bottom: 0;
     font-family: 'Gowun Dodum', sans-serif;
     font-size: 70px;
     color: #446FF2;
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 .login-h2{
-    margin-top: 10px;
+    margin-top: 0px;
     margin-left: 155px;
     font-family: 'Zen Kurenaido', sans-serif;
 }
