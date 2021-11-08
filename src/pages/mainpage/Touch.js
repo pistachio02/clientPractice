@@ -54,7 +54,7 @@ function Touch({moveImgs,isLogin}) {
                 className='thumbnail' 
                 src={moveImgs.image} 
                 alt='thumbnail' />
-                <audio /*autoplay="autoplay"*/ src={moveImgs.sound} type="audio/mpeg" ></audio>
+                <audio controls autoplay="autoplay" src={moveImgs.sound} type="audio/mpeg" ></audio>
                 </FullScreen>
             </div>
          )
