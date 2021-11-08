@@ -21,7 +21,7 @@ const WrittenBoard = () => {
         // 게시글 목록 호출
         async function fetchData() {
             try {
-                const resp = await axios.get(`http://localhost:4000/list?page=${currentPage}`)
+                const resp = await axios.get(`https://localhost:4000/myposts?page=${currentPage}`, {withCredentials: true})
                 const data = resp.data
                 setList([...data.list])
                 setTotalPage(data.info.totalPage)
@@ -66,12 +66,11 @@ const WrittenBoard = () => {
                             <div key={el.id}> 
                             <td  ><Link to={`/board/view/${el.id}`}>{el.id}</Link></td>
                             <td >{el.title}</td>
-                            <td >{el.user_nickname}</td>
+                            <td >{el.content}</td>
                             <td >{el.createdAt}</td>
                             </div>
                             </tr>
                             )}
-                    
                     </tbody>
             
                 </table>

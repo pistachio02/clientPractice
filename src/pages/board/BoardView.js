@@ -27,6 +27,7 @@ const BoardView = ({isLogin ,userInfo}) => {
             console.error('댓글을 불러 올 수  없습니다.', error)
         }
     }, [id])
+
     useEffect(() => {
         if (id) {
             const fetchData = async () => {
@@ -41,6 +42,7 @@ const BoardView = ({isLogin ,userInfo}) => {
             fetchComments()
         }
     }, [id, fetchComments])
+    
     // 댓글 저장
     const writeComment = async (e) => {
         // const content = prompt('댓글을 입력하세요.', '')

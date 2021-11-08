@@ -18,7 +18,7 @@ const BoardList = () => {
         // 게시글 목록 호출
         async function fetchData() {
             try {
-                const resp = await axios.get(`http://localhost:4000/list?page=${currentPage}`)
+                const resp = await axios.get(`https://localhost:4000/list?page=${currentPage}`, {withCredentials: true})
                 const data = resp.data
                 setList([...data.list])
                 setTotalPage(data.info.totalPage)
