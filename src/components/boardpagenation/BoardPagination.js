@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-
+//페이지네이션 CSS 위치
+import './PaginationStyled.css'
 
 const BoardPagination = ({currentPage, totalPage, onMove}) => {
     const [list, setList] = useState([])
@@ -17,15 +18,20 @@ const BoardPagination = ({currentPage, totalPage, onMove}) => {
         onMove(e, pageNo)
     }
 
+
     return (
-        <div>
-                <button>
+        <div className ="pagination-container">
+                <ul className ="pagination">
                 {list.map(item => 
-                    <div key={item}
+                    <li className ="li-container"
+                    key={item}
                         onClick={(e) => movePage(e, item)} 
-                        active={item === currentPage}>{item}</div>   
+                        active={item === currentPage}
+                    >   
+                       <a href = "1" className="num"> {item} </a>
+                    </li>   
                 )}
-                </button>
+                </ul>
         </div>
     )
 }
