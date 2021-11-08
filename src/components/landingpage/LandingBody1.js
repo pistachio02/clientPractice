@@ -2,7 +2,9 @@ import React from 'react'
 import { Indicator, ScrollDown } from '../style/styled'
 import './LandingBody1.css'
 
+
 function LandingBody1() {
+
     return (
         <div className = 'landing-wrap'>
             <div className = 'landing-text'>
@@ -11,11 +13,14 @@ function LandingBody1() {
            </div>
            <p className = 'landing-p'>이미지와 소리로 마음의 안정을 찾아보세요</p>
             </div>
-           <ScrollDown>
+            <div className = 'scroll'>
+             <ScrollDown>
                <Indicator/>
                <Indicator/>
                <Indicator/>
            </ScrollDown>
+            </div>
+
         </div>
 
     )

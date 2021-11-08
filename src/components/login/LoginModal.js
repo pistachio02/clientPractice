@@ -1,14 +1,16 @@
 import React, {useState} from 'react'
 import { ModalView, StyledButton} from '../style/styled'
 import Input from './Input'
-import {Link, useHistory} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import axios from 'axios'
 import kakao from '../../image/kakao.png'
 import google from '../../image/google.png'
+import { useHistory } from 'react-router-dom'
 
 
 function LoginModal({ handleResponseSuccess }) {
-    const history = useHistory();
+
+    const history = useHistory()
     const [isValidationMessage, setIsValidationMessage] = useState('')
     const [userinfo, setuserinfo] = useState({
         email: '',
@@ -39,8 +41,9 @@ function LoginModal({ handleResponseSuccess }) {
               }else{
                 setIsValidationMessage('')
                 handleResponseSuccess()
-                history.push('/');
+                history.pushState('/')
               }
+              
           })
           .catch((err)=>console.log(err))
     };

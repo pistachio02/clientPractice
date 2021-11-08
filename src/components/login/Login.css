@@ -40,8 +40,8 @@ p{
 
 .social-kakao {
     border-radius: 10px;
-    margin-left: 120px;
-    margin-top: 10px;
+    margin-left: 115px;
+    margin-top: 22px;
     width: 40px;
     cursor: pointer;
 }
@@ -59,10 +59,9 @@ p{
 }
 
 .social-google{
-    width: 40px;
-    margin-top: 10px;
+    width: 85px;
     margin-left: 20px;
-    border-radius: 5px;
+    cursor: pointer;
 }
 .validation {
     font-size: 12px;

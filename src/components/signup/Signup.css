@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat&family=Nanum+Pen+Script&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Zen+Kurenaido&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Nanum+Gothic&display=swap');
+
 
 .signup{
     margin-left: 61px;
@@ -7,18 +9,20 @@
 }
 
 .signin-h1{
-    margin-left: 100px;
-    font-family: 'Caveat', cursive;
+    margin-left: 90px;
+    font-family: 'Gowun Dodum', sans-serif;
     font-size: 70px;
     color: #446FF2;
 }
 .signin-h2{
-    margin-left: 140px;
+    margin-left: 150px;
     font-family: 'Zen Kurenaido', sans-serif;
+    margin-bottom: 30px;
+    margin-top: 10px;
 }
 
-.p{
-    margin-left: 20px;
+.sign-up-p{
+    margin-left: 120px;
 }
 
 .validation {

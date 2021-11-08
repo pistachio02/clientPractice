@@ -1,6 +1,24 @@
 import styled , { css, keyframes }from 'styled-components'
 
 
+export const LastButton = styled.button`
+  font-size: 16px;
+    color: #ffffff;
+    background-color: #72A603;
+    border-radius: 5px;
+    border: 0px;
+    height: 40px;
+    padding: 4px;
+    margin: 4px;
+    cursor: pointer;
+    width: 199px;
+    outline: none;
+    font-weight: 700;
+    &:hover {
+      background-color: #BFD962
+    }
+`;
+
 export const ScrollDown = styled.div`
   position: absolute;
   bottom: 20px;
@@ -51,7 +69,49 @@ export const Indicator = styled.span`
     transform: translate(15px, 15px);
     animation-delay: 0s;
   }
+  @media screen and (min-width: 1440px) {
+    margin-top: 100px;
+    margin-left: 120px;
+  }
+  @media screen and (min-width: 1281px) and (max-width: 1440px) {
+   margin-top: 100px;
+   margin-left: 140px;
+  }
+
+  @media screen and (min-width: 1024px) and (max-width: 1281px){
+    margin-top: 100px;
+   margin-left: 100px;
+  }
+
+  @media screen and (min-width: 900px) and (max-width: 1024px){
+    margin-top: 100px;
+   margin-left: 120px;
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 900px) {
+    margin-top: 100px;
+   margin-left: 120px;
+  }
+
+  @media screen and (min-width: 600px) and (max-width: 768px){
+    margin-top: 100px;
+   margin-left: 120px;
+  }
+  @media screen and (min-width: 505px) and (max-width: 600px){
+    margin-top: 100px;
+   margin-left: 120px;
+  }
+  @media screen and (min-width: 425px) and (max-width: 505px){
+    margin-top: 100px;
+   margin-left: 120px;
+  }
+  @media screen and (min-width: 319px) and (max-width: 425px){
+    margin-top: 100px;
+   margin-left: 120px;
+  }
 `;
+
+
 
 
 export const StyledButton = styled.button`
@@ -84,6 +144,7 @@ export const Menu = styled.div`
   box-sizing: 0 5px 25px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   transition: 0.25s;
+  margin-top: 20px;
   ${(props) =>
     props.open
       ? css`
@@ -169,7 +230,7 @@ export const ModalView = styled.div.attrs(props => ({
     border-radius: 10px;
     background-color: #ffffff;
     width: 350px;
-    height: 521px;
+    height: 550px;
     display: grid;
     grid-template-columns: 1fr 1fr 1.5fr;
 `;
