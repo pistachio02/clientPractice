@@ -5,12 +5,10 @@ import { useHistory } from 'react-router-dom'
 
 function Signup() {
     const history = useHistory();
-    const moveToMain = () => {
-        history.push('/')
-    }
+    
     return (
         <div>
-            <ModalBackdrop onClick = {moveToMain}>
+            <ModalBackdrop >
                 <SignupModal/>
             </ModalBackdrop>
         </div>

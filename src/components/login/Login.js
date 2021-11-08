@@ -6,12 +6,10 @@ import { useHistory } from 'react-router-dom'
 
 function Login({ handleResponseSuccess }) {
     const history = useHistory();
-    const moveToMain = () => {
-        history.push('/')
-    }
+    
     return (
         <div>
-            <ModalBackdrop onClick = {moveToMain}>
+            <ModalBackdrop >
                 <LoginModal handleResponseSuccess={handleResponseSuccess} />
             </ModalBackdrop>
             
