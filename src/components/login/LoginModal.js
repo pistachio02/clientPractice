@@ -43,7 +43,7 @@ function LoginModal({ handleResponseSuccess }) {
               }else{
                 setIsValidationMessage('')
                 handleResponseSuccess()
-                history.pushState('/')
+                history.push('/')
               }
               
           })

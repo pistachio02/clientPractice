@@ -1,6 +1,5 @@
 import React,{useState,useEffect} from 'react'
 import FavoriteCard from './FavoriteCard'
-import DummyUpData from '../../../data/DummyUpDate'
 import axios from 'axios';
 import swal from 'sweetalert';
 
