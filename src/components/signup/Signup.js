@@ -7,7 +7,7 @@ function Signup() {
 
     return (
         <div>
-            <ModalBackdrop>
+            <ModalBackdrop >
                 <SignupModal/>
             </ModalBackdrop>
         </div>

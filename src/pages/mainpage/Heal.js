@@ -26,15 +26,10 @@ text-align: center;
 
 function Heal({isLogin, userinfo, handleLogout}){
 
-
-    // 움직이는 이미지  
-      const [moveImgs, setMoveImgs] = useState([])
-    
-        // console.log('img',moveImgs)
-    
-      const [moveCurrentImgs, setMoveCurrentImgs] = useState({
-          title:''
-      })
+  const [moveImgs, setMoveImgs] = useState([])
+  const [moveCurrentImgs, setMoveCurrentImgs] = useState({
+      title:''
+  })
     
     
     const search = ({ title }) => {
@@ -87,39 +82,39 @@ function Heal({isLogin, userinfo, handleLogout}){
     
     
     
-        return (
-            <div>
-                <Header userinfo={userinfo} isLogin={isLogin} handleLogout={handleLogout}/>
-               <MainSideBar/>
-                {/* <MainGridBody /> */}
-                {/* <Search search={search}/> */}
-            <Switch>
-            {/* <MainGrid> */}
-          
-            <Route path='/heal' exact component={Home} />
+  return (
+        <div>
+            <Header userinfo={userinfo} isLogin={isLogin} handleLogout={handleLogout}/>
+            <MainSideBar/>
+            {/* <MainGridBody /> */}
+            {/* <Search search={search}/> */}
+        <Switch>
+        {/* <MainGrid> */}
       
-    
-            <Route path='/heal/moveimg' 
-            render={()=><MoveImgList 
-                search={search}
-                moveCurrentImgs={moveCurrentImgs} 
-                moveImgs={moveImgs.filter(filterByImg)}
-                handleMoveCardClick={handleMoveCardClick}
-                />}
-            />
-    
-    
-            <Route path='/heal/touch' 
-            render={()=> <Touch
-            isLogin={isLogin}
-            moveImgs={moveCurrentImgs}
-    
-            />}/>
-            {/* </MainGrid> */}
-            </Switch>
-            </div>
-        )
-    }
+        <Route path='/heal' exact component={Home} />
+  
+
+        <Route path='/heal/moveimg' 
+        render={()=><MoveImgList 
+            search={search}
+            moveCurrentImgs={moveCurrentImgs} 
+            moveImgs={moveImgs.filter(filterByImg)}
+            handleMoveCardClick={handleMoveCardClick}
+            />}
+        />
+
+
+        <Route path='/heal/touch' 
+        render={()=> <Touch
+        isLogin={isLogin}
+        moveImgs={moveCurrentImgs}
+
+        />}/>
+        {/* </MainGrid> */}
+        </Switch>
+        </div>
+    )
+  }
     
     export default Heal
     
