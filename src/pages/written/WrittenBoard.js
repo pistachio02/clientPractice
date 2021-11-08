@@ -2,7 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Link , useHistory } from 'react-router-dom';
 import BoardPagination from '../../components/boardpagenation/BoardPagination'
 import axios from 'axios'
-// import './WrittenStyled.css'
+import './WrittenStyled.css'
+
+// 내가 쓴글 목록 입니다.
+// CSS는 제가 한번 해결해보도록 하겠습니다.
+
 
 const WrittenBoard = () => {
     const history = useHistory()
@@ -17,7 +21,7 @@ const WrittenBoard = () => {
         // 게시글 목록 호출
         async function fetchData() {
             try {
-                const resp = await axios.get(`https://localhost:4000/myposts?page=${currentPage}`, {withCredentials: true})
+                const resp = await axios.get(`http://localhost:4000/list?page=${currentPage}`)
                 const data = resp.data
                 setList([...data.list])
                 setTotalPage(data.info.totalPage)
@@ -39,11 +43,10 @@ const WrittenBoard = () => {
     }
     
     
-    // {list.length > 0 && (
-    //     <BoardPagination currentPage={currentPage} totalPage={totalPage} 
-    //     onMove={movePage} />
-    //     )}
+
     return (
+        <div className ="written-container">
+
         <div className ="written-body">
             <div>   
                 <table>
@@ -54,19 +57,20 @@ const WrittenBoard = () => {
                             <th>내용</th>
                             <th>작성일</th>
                         </tr>
-                    </tread>
+                            </tread>
                     <tbody>
-                        <tr>
-                            
+
+                    {/* 페이지네이션 */}
                     {list.map(el => 
+                        <tr>
                             <div key={el.id}> 
                             <td  ><Link to={`/board/view/${el.id}`}>{el.id}</Link></td>
                             <td >{el.title}</td>
                             <td >{el.user_nickname}</td>
                             <td >{el.createdAt}</td>
                             </div>
-                            )}
                             </tr>
+                            )}
                     
                     </tbody>
             
@@ -76,8 +80,12 @@ const WrittenBoard = () => {
                 <div>
                 </div> 
        
-
                 </div>
+                {list.length > 0 && (
+        <BoardPagination currentPage={currentPage} totalPage={totalPage} 
+        onMove={movePage} />
+        )}
+                            </div>
     )
 }
 

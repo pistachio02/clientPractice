@@ -4,12 +4,17 @@ import axios from 'axios';
 import { isEmpty } from '../../components/boardpagenation/index';
 import swal from 'sweetalert';
 import '../board/css/ViewStyled.css';
+
+// 내가 쓴 글 에서 history push 중복으로 인해 
+// 파일을 재 사용 해야 합니다.
+// 나중에 새로 통합 하고 수정할 때 변경을 다시 해보겠습니다.
+
 const BoardView = ({isLogin ,userInfo}) => {
     // history 객체 로드 
     const history = useHistory()
     // route 에 지정한 id 파라미터
     const { id } = useParams()
-    // 게시글 데이터
+    // 게시글 데이터 
     const [data, setData] = useState({})
     // 댓글 리스트 
     const [comments, setComments] = useState([])
@@ -18,13 +23,13 @@ const BoardView = ({isLogin ,userInfo}) => {
     const handleChangeMsg = (e) =>{
         setContent(e.target.value);
     }
-    // 댓글 불러오기
+    // 코멘트 불러오기
     const fetchComments = useCallback(async () => {
         try {
             const resp = await axios.get(`https://localhost:4000/view/${id}/comments`)
             setComments(resp.data.commentInfo)
         } catch (error) {
-            console.error('댓글을 불러 올 수  없습니다.', error)
+            console.error('댓글 데이터를 불러올 수 없습니다. error=>', error)
         }
     }, [id])
     useEffect(() => {
@@ -34,7 +39,7 @@ const BoardView = ({isLogin ,userInfo}) => {
                     const resp = await axios.get(`https://localhost:4000/board/view/${id}`)
                     setData(resp.data.postInfo)
                 } catch (error) {
-                    console.error('게시글을 불러올 수 없습니다', error)
+                    console.error('게시글 데이터를 불러올 수 없습니다. error=>', error)
                 }
             }
             fetchData()
@@ -97,7 +102,7 @@ const BoardView = ({isLogin ,userInfo}) => {
             .then((res) => {
                 if(res.data === "Post Successfully Deleted!") {
                     swal('게시글을 삭제했습니다.')
-                    history.push("/")
+                    history.push("/written")   
                 } else if(res.data === "Not Allowed!") {
                     swal('작성자만 삭제가 가능합니다.')
                 } else {
@@ -122,7 +127,7 @@ const BoardView = ({isLogin ,userInfo}) => {
                 </div>
             </div>
             <div>
-                <Link to="/board">
+                <Link to="/written">
                     <button >뒤로가기</button>
                 </Link>
             </div>
