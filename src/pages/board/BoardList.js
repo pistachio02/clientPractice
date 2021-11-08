@@ -3,6 +3,7 @@ import { Link , useHistory } from 'react-router-dom';
 import BoardPagination from '../../components/boardpagenation/BoardPagination'
 import axios from 'axios'
 import '../board/css/ListStyled.css'
+import swal from 'sweetalert';
 
 const BoardList = () => {
     const history = useHistory()
