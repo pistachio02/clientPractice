@@ -29,7 +29,6 @@ function App() {
           .then((res)=>{
             setIsLogin(true);
             setUserinfo(res.data.data.userInfo);
-            // history.push('/');
           })
     } else {
       axios
