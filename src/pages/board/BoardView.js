@@ -99,7 +99,10 @@ const BoardView = ({isLogin ,userInfo}) => {
             .then((res) => {
                 if(res.data === "Post Successfully Deleted!") {
                     swal('게시글을 삭제했습니다.')
-                    history.push("/")
+                    .then(() => {
+                        history.push("/board")
+                        window.location.reload();
+                    })
                 } else if(res.data === "Not Allowed!") {
                     swal('작성자만 삭제가 가능합니다.')
                 } else {

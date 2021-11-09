@@ -29,7 +29,7 @@
    top: 0;
    z-index: 2;
    background-color:  #fff;
-   height: 10px;
+   height: 70px;
 }
 .grow{
     flex-grow: 10
