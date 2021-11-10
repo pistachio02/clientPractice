@@ -1,19 +1,16 @@
 import { useState } from 'react'
-import '../maincomponent/maincss/Search.css'
+import '../maincss/Search.css'
 import { Link } from 'react-router-dom'
 
 function Search({search}) {
   const [text, setText] = useState('')
 
-console.log('textdest',text)
-
   const handleChange = (e) => {
     setText(e.target.value)
-    console.log(e.target.value)
   }
 
   const handleKeyPress = (e) => {
-    if (e.type === 'keypress' && e.code === 'Enter') {
+    if(e.type === 'keypress' && e.code === 'Enter') {
       handleSearchClick()
     }
   }
@@ -32,7 +29,6 @@ console.log('textdest',text)
          </div>
          <div className="search_input_center">
          <input id="search_input" type="text" value={text} onChange={handleChange} placeholder="&#61442;" onKeyPress={handleKeyPress} />
-         {/* <button className="search_btn">Search</button> */}
          </div>
   <div>
   <Link to = "/heal/touch" ><button className="search_btn">Touch 바로가기</button></Link>
