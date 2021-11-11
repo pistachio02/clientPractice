@@ -1,3 +1,8 @@
+.cardWrap{
+    margin-left: 40px;
+    margin-bottom: 30px;
+}
+
 .card1{
     height: 400px;
     width: 350px;
@@ -9,26 +14,55 @@
     position: relative;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     overflow: hidden;
+    text-decoration: none;
+    text-decoration-line: none;
 }
 
 
+.board-content{
+    text-decoration: none;
+    color: black;
+    text-decoration-line: none;
+    font-size: 13px;
+}
+.board-user {
+    text-decoration: none;
+    text-decoration-line: none;
+    color: black;
+    font-size: 20px;
+    font-weight: 600;
+}
+.board-title {
+    text-decoration: none;
+    text-decoration-line: none;
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.someone {
+    display: grid;
+    grid-template-columns: 0.1fr 1fr;
+    margin-bottom: 10px;
+}
+
 .card-header {
 
-	-webkit-transition: 0.5s; /*사파리 & 크롬*/
+    -webkit-transition: 0.5s; /*사파리 & 크롬*/
 
     transition: 0.5s;
 
-	width: 100%;
+    width: 100%;
 
-	height: 270px;
+    height: 270px;
 
-	border-radius: 15px 15px 0 0;
+    border-radius: 15px 15px 0 0;
 
-	background-image: url("../../../image/back.png");
+    background-image: url("../../../image/back.png");
 
-	background-size: 100% 280px;
+    background-size: 100% 280px;
 
-	background-repeat: no-repeat;	
+    background-repeat: no-repeat;    
 
 }
 
@@ -36,16 +70,12 @@
 
 .card1:hover .card-header  {
 
-	opacity: 0.8;
+    opacity: 0.8;
 
-	height: 100px;
+    height: 100px;
 
 }
 
-.title-content {
-    font-size: 20px;
-    font-weight: bold;
-}
 
 
 
@@ -81,14 +111,6 @@
     transition : .5s ease-in-out;
     overflow: scroll;
 }
-
-
-
-.card-body-hashtag {
-    color: #2478FF;
-    font-style: italic;
-}
-
 
 
 .card-body-footer {
@@ -130,7 +152,7 @@
 } 
 
 .board-write-button{
-    width: 300px;
+    width: 100px;
     display: block;
     margin: auto;
     background-color: navy;
@@ -139,13 +161,14 @@
     cursor: pointer;
     font-family: 'BenchNine', Arial,sans-serif;
     font-size: 1em;
-  font-size: 22px;
-  line-height: 1em;
-  outline: none;
-  padding: 12px 40px 10px;
-  position: relative;
-  text-transform: uppercase;
-  font-weight: 700;
+    font-size: 20px;
+    line-height: 1em;
+    outline: none;
+    padding: 10px 20px 10px;
+    position: relative;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-decoration: none;
 }
 .board-write-button:before,
 .board-write-button:after{

@@ -3,6 +3,7 @@ import { Link , useHistory } from 'react-router-dom';
 import BoardPagination from '../../components/boardpagenation/BoardPagination'
 import axios from 'axios'
 import './WrittenStyled.css'
+import noface from '../board/image/noface.png'
 
 // 내가 쓴글 목록 입니다.
 // CSS는 제가 한번 해결해보도록 하겠습니다.
@@ -47,28 +48,33 @@ const WrittenBoard = () => {
             <div className ="cardWrap">   
             
                 {list.map(el => 
-                    <div class="card1"> 
+                   <Link to={`board/view/${el.id}`}>
+                    <div className="card1"> 
                         <div key={el.id}>
-                            <Link to={`board/view/${el.id}`}>
-                                <div class="card-header"></div>
-                                <div class="card-body-header">
-                                    <div className="title-content">{el.title}</div>
-                                    <div class = "card-body-nickname">작성자: {el.user_nickname}</div>
-                                    <div>{el.content}</div>
+                         
+                                <div className="card-header"></div>
+                                <div className="card-body-header">
+                                    <div className = 'someone'>
+                                         <img src = {noface} alt = ''/>
+                                        <div className = "board-user">{el.user_nickname}</div>
+                                    </div>
+                                    <div className="board-title">{el.title}</div>
+                                    <div className = 'board-content'>{el.content}</div>
                                 </div>
                                 <div className ="card-body-footer">
                                     <i className ="reg_date">{el.createdAt}</i>
                                 </div>
-                            </Link>
                         </div>
                     </div>
+                    </Link>
                 )}
             </div>
+            <Link className ="board-write-button" to="/board/write" ><button className ="board-write-button hover">글쓰기</button></Link>
             {list.length > 0 && (
                 <BoardPagination currentPage={currentPage} totalPage={totalPage} 
                 onMove={movePage} />
             )}
-        </>
+       </>
     )
 }
 

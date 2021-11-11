@@ -5,6 +5,11 @@ import { isEmpty } from '../../components/boardpagenation/index';
 import swal from 'sweetalert';
 import '../board/css/ViewStyled.css';
 
+import noface from '../board/image/someone2.png'
+import { BoardModalView }  from '../board/css/styled'
+import * as AiIcons from 'react-icons/ai'
+import noface1 from '../board/image/noface.png'
+
 // 내가 쓴 글 에서 history push 중복으로 인해 
 // 파일을 재 사용 해야 합니다.
 // 나중에 새로 통합 하고 수정할 때 변경을 다시 해보겠습니다.
@@ -119,41 +124,69 @@ const BoardView = ({isLogin ,userInfo}) => {
     }
 
     return (
-        <div>
-            <div>
-                <div>
-                    <button className="update-button" onClick={modifyData}>수정</button>
-                    <button className="delete-button" onClick={deleteData}>삭제</button>
+      
+        <div className = 'board-background'>
+            <BoardModalView>
+                <div className = 'view-wrap'>
+                      <div className = 'view-arrow'>
+                    <Link to="/board">
+                <AiIcons.AiOutlineArrowLeft/>
+                </Link>
+                </div>
+                
+              <div className ="list-container">
+                <div className = "List-wrap">
+                       <div className = 'view-someone'>
+                   <img src = {noface} alt = '' className = 'view-img'/>
+                    <div className = 'view-user'>{data.user_nickname}</div>
+                </div>
+                <div className = 'view-content'>
+                     <div className ="list-title">{data.title}</div>
+                <div className = "list-content">{data.content}</div>
+                </div>
+                <div className = 'edit-delete'>
+                    <div className="update-button" onClick={modifyData}>수정</div>
+                    <div className="delete-button" onClick={deleteData}>삭제</div>
                 </div>
             </div>
-            <div>
-                <Link to="/written">
-                    <button >뒤로가기</button>
-                </Link>
             </div>
-            <div className ="list-container">
-                <div className ="list-title">제목 : {data.title}</div>
-                <div className = "list-content">내용 : {data.content}</div>
+            <div>
+
             </div>
             <div className = "comments-form">
-                <input type ="text" className="comments-input " onChange={handleChangeMsg} placeholder ="댓글을 입력하세요"></input> 
-                <button className ="commtents-btn" onClick ={writeComment}>댓글 달기</button>   
+                <div className = 'reply-text'>댓글 남기기</div>
+                <div className = 'comments-btn-text'>
+                     <input type ="text" className="comments-input" onChange={handleChangeMsg} placeholder ="댓글을 입력하세요"></input> 
+                <button className ="commtents-btn" onClick ={writeComment}>등록</button>   
+                </div>
+               
             </div>
             <div className= "comments-container">
             {comments.length > 0 && (
                 <div className="comments-header">
                     {comments.map(item => 
-                        <ul  className="comments-list" key={item.id}>
-                            <li>{item.content} 
-                            {item.user_nickname} 
-                            {item.createdAt} 
-                            </li>
-                            <button className ="1"  onClick={() => deleteComment(item.id)}>삭제</button>
-                        </ul>
+                        <div  className="comments-list" key={item.id}>
+                            <div className = 'reply-wrap'>
+                                <div className = 'someone2'>
+                                    <img src = {noface1} alt = '' />
+                                    <div>{item.user_nickname}  </div>
+                                </div>
+                            <div className = 'comment-content-wrap'>
+                                <div className = 'comment-comment'>{item.content}  </div>
+                                <div className = 'comment-date'>  2021.11.10 </div>
+                            </div>
+                            
+                            </div>
+                            <div className ="comment-delete"  onClick={() => deleteComment(item.id)}>삭제</div>
+                        </div>
                     )}
                 </div>
             )}
            </div>
+                </div>
+              
+             </BoardModalView>
+          
         </div>
     )
 }

@@ -1,9 +1,14 @@
+.write-back{
+  background-image: url(../image/agoraback5.jpg);
+  background-size: cover;
+  height: 100vh;
+}
+
 .boardContainer{
     text-align: center;
     position: relative;
     width: 500px;
     margin: 50px auto 100px auto;
-    
 }
 form {
         position: relative;
@@ -11,24 +16,26 @@ form {
         margin: 50px auto 100px auto;
       }
 .board-button {
-        width: 502px;
-        
-        padding: 0;
-        margin: -5px 0px 0px 0px;
-        
-        font-family: 'Lato', sans-serif;
-        font-size: 0.875em;
-        color: #b3aca7;
-        
-        outline:none;
+        width: 70px;
+        position: relative;
+        display: inline-block;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        border: 2px solid #D0D2F2;
+        box-shadow: 0 20px 50px 0 rgba(0, 0, 0, 0.12);
+        transition: 250ms ease-out;
+        font-size: 0.5rem;
+        margin: 6px;
+        border-radius: 5px;
+        white-space: normal !important;
+        word-wrap: break-word;
         cursor: pointer;
-        
-        border: solid 1px #b3aca7;
-        border-top: none;
+        height: 20px;
+        font-family: sans-serif;
       }
       
       .board-button:hover {
-        color: #e2dedb;
+        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.22);
       }
 
       .board-input {
@@ -43,8 +50,9 @@ form {
           color: #726659;
           
           border: solid 1px #b3aca7;
-          border-bottom: none;
-          
+          border-top: none;
+          border-left: none;
+          border-right: none;
           transition: all 0.3s ease-in-out;
           -webkit-transition: all 0.3s ease-in-out;
           -moz-transition: all 0.3s ease-in-out;
@@ -67,11 +75,14 @@ form {
         font-size: 0.875em;
         
         border: solid 1px #b3aca7;
-        
+        border-top: none;
         transition: all 0.3s ease-in-out;
         -webkit-transition: all 0.3s ease-in-out;
         -moz-transition: all 0.3s ease-in-out;
         -ms-transition: all 0.3s ease-in-out;
+        border-right: none;
+        border-left: none;
+
       }
    
 label{
@@ -81,4 +92,10 @@ label{
 display: grid;
 row-gap: 20px;
 grid-template-columns: 1fr 1fr 1.5fr;
+}
+
+.write-button-wrap{
+  display: grid;
+  grid-template-columns: 0.5fr 0.5fr;
+  margin-left: 55px;
 }

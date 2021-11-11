@@ -53,17 +53,6 @@ function SignupModal() {
 			}
 		}
 
-
-
-        // setuserinfo({ ...userinfo, [key]: e.target.value });
-        // if(!isEmail(userinfo.email)){
-        //  setIsValidationMessage('올바른 이메일 형식이 아닙니다 !')
-        // } else if(!isPassword(userinfo.password)) {
-        //     setIsValidationMessage('비밀번호는 4글자 이상 영문 숫자를 포함하여야 합니다')
-        // } else {
-        //     setIsValidationMessage('')
-        //     setIsValidate(true)
-        // }
     };
 
     const handleSignup = () => {

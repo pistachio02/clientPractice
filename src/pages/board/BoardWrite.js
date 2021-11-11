@@ -4,6 +4,8 @@ import axios from 'axios'
 import { isEmpty } from '../../components/boardpagenation/index'
 import '../board/css/WriteStyled.css'
 import swal from 'sweetalert'
+import { BoardModalView } from './css/styled';
+
 
 const BoardWrite = props => {
     const history = useHistory()
@@ -74,18 +76,23 @@ const BoardWrite = props => {
     }
 
     return (
-        <body>
-            <form className ="boardContainer" onSubmit={submitForm}>
+    <div className ='write-back'>
+        <BoardModalView>
+                   <form className ="boardContainer" onSubmit={submitForm}>
                 <form className="boardHeader1" >
-                    <input className="board-input" type="text" placeholder="제목을 입력해주세요" value={title} onChange={changeTitle} />
+                    <input className="board-input" type="text" placeholder="제목을 입력해주세요" value={title} onChange={changeTitle}/>
                     <textarea rows={8} placeholder="내용을 입력해주세요." value={content} onChange={changeContent} />
                 </form>
-                <div>
+                <div className = 'write-button-wrap'>
                     <button className="board-button" >확인</button>
                     <Link to="/board"><button className ="board-button">취소</button></Link>
                 </div>
             </form>
-        </body>
+        </BoardModalView>
+             
+    </div>
+
+   
     )
 }
 

@@ -29,8 +29,12 @@
    top: 0;
    z-index: 2;
    background-color:  #fff;
-   height: 70px;
+   height: 60px;
 }
 .grow{
     flex-grow: 10
+}
+
+.settings{
+    cursor: pointer;
 }

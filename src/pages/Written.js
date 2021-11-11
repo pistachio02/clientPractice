@@ -9,18 +9,18 @@ function Written({isLogin, userinfo, handleLogout}) {
     return (
         <div>
             <Header userinfo={userinfo} isLogin={isLogin} handleLogout={handleLogout} />
-            <BrowserRouter>
-            <Switch>
-                <Route exact path="/written" 
-                render={()=><WrittenBoard userinfo={userinfo} isLogin={isLogin} handleLogout={handleLogout}/>}/>
-              <Route path="/board/view/:id" 
-                render={()=> <BoardView  userinfo={userinfo} isLogin={isLogin} handleLogout={handleLogout}/>}/> 
-                 <Route exact path="/board/write" 
-                 render={()=> <BoardWrite userinfo={userinfo} isLogin={isLogin} handleLogout={handleLogout}/>}/>
-                 <Route path="/board/write/:id" 
-                 render={()=> <BoardWrite userinfo={userinfo} isLogin={isLogin} handleLogout={handleLogout}/>}/>
-            </Switch>
-            </BrowserRouter>
+                <BrowserRouter>
+                    <Switch>
+                        <Route exact path="/written" 
+                            render={()=><WrittenBoard userinfo={userinfo} isLogin={isLogin} handleLogout={handleLogout}/>}/>
+                        <Route path="/board/view/:id" 
+                            render={()=> <BoardView  userinfo={userinfo} isLogin={isLogin} handleLogout={handleLogout}/>}/> 
+                        <Route exact path="/board/write" 
+                            render={()=> <BoardWrite userinfo={userinfo} isLogin={isLogin} handleLogout={handleLogout}/>}/>
+                        <Route path="/board/write/:id"
+                            render={()=> <BoardWrite userinfo={userinfo} isLogin={isLogin} handleLogout={handleLogout}/>}/>
+                    </Switch>
+                </BrowserRouter>
         </div>
     )
 }

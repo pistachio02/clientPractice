@@ -4,6 +4,11 @@ import axios from 'axios';
 import { isEmpty } from '../../components/boardpagenation/index';
 import swal from 'sweetalert';
 import '../board/css/ViewStyled.css';
+import noface from '../board/image/someone2.png'
+import { BoardModalView }  from '../board/css/styled'
+import * as AiIcons from 'react-icons/ai'
+import noface1 from '../board/image/noface.png'
+
 const BoardView = ({isLogin ,userInfo}) => {
     // history 객체 로드 
     const history = useHistory()
@@ -27,7 +32,6 @@ const BoardView = ({isLogin ,userInfo}) => {
             console.error('댓글을 불러 올 수  없습니다.', error)
         }
     }, [id])
-
     useEffect(() => {
         if (id) {
             const fetchData = async () => {
@@ -42,7 +46,6 @@ const BoardView = ({isLogin ,userInfo}) => {
             fetchComments()
         }
     }, [id, fetchComments])
-    
     // 댓글 저장
     const writeComment = async (e) => {
         // const content = prompt('댓글을 입력하세요.', '')
@@ -63,7 +66,11 @@ const BoardView = ({isLogin ,userInfo}) => {
             return swal('댓글을 저장하였습니다.')
 
         } catch (error) {
-            swal('댓글을 저장하지 못했습니다.')
+            swal('로그인이 필요한 서비스 입니다.')
+            .then(() =>  history.push('/login')
+            )
+            .then(() => window.location.reload())
+           
         }
     }
     // 댓글 삭제 
@@ -99,10 +106,7 @@ const BoardView = ({isLogin ,userInfo}) => {
             .then((res) => {
                 if(res.data === "Post Successfully Deleted!") {
                     swal('게시글을 삭제했습니다.')
-                    .then(() => {
-                        history.push("/board")
-                        window.location.reload();
-                    })
+                    history.push("/")
                 } else if(res.data === "Not Allowed!") {
                     swal('작성자만 삭제가 가능합니다.')
                 } else {
@@ -110,7 +114,10 @@ const BoardView = ({isLogin ,userInfo}) => {
                 }
             })
         } catch (error) {
-            swal('게시글을 삭제하지 못했습니다.')
+            swal('로그인이 필요한 서비스 입니다.')
+            .then(() =>  history.push('/login')
+            )
+            .then(() => window.location.reload())
         }
     }
     // 게시글 수정 페이지로 이동
@@ -119,41 +126,69 @@ const BoardView = ({isLogin ,userInfo}) => {
     }
 
     return (
-        <div>
-            <div>
-                <div>
-                    <button className="update-button" onClick={modifyData}>수정</button>
-                    <button className="delete-button" onClick={deleteData}>삭제</button>
+      
+        <div className = 'board-background'>
+            <BoardModalView>
+                <div className = 'view-wrap'>
+                      <div className = 'view-arrow'>
+                    <Link to="/board">
+                <AiIcons.AiOutlineArrowLeft/>
+                </Link>
+                </div>
+                
+              <div className ="list-container">
+                <div className = "List-wrap">
+                       <div className = 'view-someone'>
+                   <img src = {noface} alt = '' className = 'view-img'/>
+                    <div className = 'view-user'>{data.user_nickname}</div>
+                </div>
+                <div className = 'view-content'>
+                     <div className ="list-title">{data.title}</div>
+                <div className = "list-content">{data.content}</div>
+                </div>
+                <div className = 'edit-delete'>
+                    <div className="update-button" onClick={modifyData}>수정</div>
+                    <div className="delete-button" onClick={deleteData}>삭제</div>
                 </div>
             </div>
-            <div>
-                <Link to="/board">
-                    <button >뒤로가기</button>
-                </Link>
             </div>
-            <div className ="list-container">
-                <div className ="list-title">제목 : {data.title}</div>
-                <div className = "list-content">내용 : {data.content}</div>
+            <div>
+
             </div>
             <div className = "comments-form">
-                <input type ="text" className="comments-input " onChange={handleChangeMsg} placeholder ="댓글을 입력하세요"></input> 
-                <button className ="commtents-btn" onClick ={writeComment}>댓글 달기</button>   
+                <div className = 'reply-text'>댓글 남기기</div>
+                <div className = 'comments-btn-text'>
+                     <input type ="text" className="comments-input" onChange={handleChangeMsg} placeholder ="댓글을 입력하세요"></input> 
+                <button className ="commtents-btn" onClick ={writeComment}>등록</button>   
+                </div>
+               
             </div>
             <div className= "comments-container">
             {comments.length > 0 && (
                 <div className="comments-header">
                     {comments.map(item => 
-                        <ul  className="comments-list" key={item.id}>
-                            <li>{item.content} 
-                            {item.user_nickname} 
-                            {item.createdAt} 
-                            </li>
-                            <button className ="1"  onClick={() => deleteComment(item.id)}>삭제</button>
-                        </ul>
+                        <div  className="comments-list" key={item.id}>
+                            <div className = 'reply-wrap'>
+                                <div className = 'someone2'>
+                                    <img src = {noface1} alt = '' />
+                                    <div>{item.user_nickname}  </div>
+                                </div>
+                            <div className = 'comment-content-wrap'>
+                                <div className = 'comment-comment'>{item.content}  </div>
+                                <div className = 'comment-date'>  2021.11.10 </div>
+                            </div>
+                            
+                            </div>
+                            <div className ="comment-delete"  onClick={() => deleteComment(item.id)}>삭제</div>
+                        </div>
                     )}
                 </div>
             )}
            </div>
+                </div>
+              
+             </BoardModalView>
+          
         </div>
     )
 }

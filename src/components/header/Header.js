@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 import touch from '../../image/tologo2.png'
 import '../header/Header.css'
 import { Move, Li, Ul, H3, Menu } from '../style/styled'
+import * as AiIcons from 'react-icons/ai'
 
 
 function Header({isLogin, userinfo, handleLogout }) {
@@ -10,6 +11,7 @@ function Header({isLogin, userinfo, handleLogout }) {
     const openProfile = () => {
         setIsOpen(!isOpen)
     }
+
 
     if(userinfo){
         return (
@@ -21,8 +23,9 @@ function Header({isLogin, userinfo, handleLogout }) {
            
             <div className="grow"></div>
             <Link to="/heal" className="header-flex-box">Heal</Link>
-            <Link to="/board" className="header-flex-box" >Board</Link>
-              <div className="header-flex-box" onClick = {openProfile}> {userinfo.nickname} </div>
+            <Link to="/board" className="header-flex-box">Agora</Link>
+              <div className="header-flex-box"> {userinfo.nickname} </div>
+              <div className = 'settings'><AiIcons.AiOutlineSetting onClick = {openProfile}/></div>
                   <Menu open = {isOpen}>
                   <H3>
                   {userinfo.nickname}
@@ -66,7 +69,7 @@ function Header({isLogin, userinfo, handleLogout }) {
               <Link to="/" ><img src={touch} alt="logo" className="logo"/></Link>
               <div className="grow"></div>
               <Link to = '/heal' className="header-flex-box">Heal</Link>
-              <Link to = '/board' className="header-flex-box">Board</Link>
+              <Link to = '/board' className="header-flex-box">Agora</Link>
               <Link to="/login" className="header-flex-box">Log in</Link>
               <Link to="/signup" className="header-flex-box">Sign Up</Link>
               </div>

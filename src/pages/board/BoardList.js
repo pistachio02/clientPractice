@@ -4,6 +4,7 @@ import BoardPagination from '../../components/boardpagenation/BoardPagination'
 import axios from 'axios'
 import '../board/css/ListStyled.css'
 import swal from 'sweetalert';
+import noface from '../board/image/noface.png'
 
 const BoardList = () => {
     const history = useHistory()
@@ -18,7 +19,7 @@ const BoardList = () => {
         // 게시글 목록 호출
         async function fetchData() {
             try {
-                const resp = await axios.get(`https://localhost:4000/list?page=${currentPage}`, {withCredentials: true})
+                const resp = await axios.get(`http://localhost:4000/list?page=${currentPage}`)
                 const data = resp.data
                 setList([...data.list])
                 setTotalPage(data.info.totalPage)
@@ -43,28 +44,28 @@ const BoardList = () => {
             <div className ="cardWrap">   
             
                 {list.map(el => 
-                    <div class="card1"> 
+                   <Link to={`board/view/${el.id}`}>
+                    <div className="card1"> 
                         <div key={el.id}>
-                            <Link to={`board/view/${el.id}`}>
-                                <div class="card-header"></div>
-                                <div class="card-body-header">
-                                    <div className="title-content">{el.title}</div>
-                                    <div class = "card-body-nickname">작성자: {el.user_nickname}</div>
-                                    <div>{el.content}</div>
-                                    {/* <div class="card-body-hashtag">#ㅇㅏㄴ녀ㅇ</div> */}
+                         
+                                <div className="card-header"></div>
+                                <div className="card-body-header">
+                                    <div className = 'someone'>
+                                         <img src = {noface} alt = ''/>
+                                        <div className = "board-user">{el.user_nickname}</div>
+                                    </div>
+                                    <div className="board-title">{el.title}</div>
+                                    <div className = 'board-content'>{el.content}</div>
                                 </div>
                                 <div className ="card-body-footer">
-                                    {/* <hr className ="hrLine"/> */}
-                                    {/* <i className = "icon-view_count">조회수 : {el.view_count}</i>
-                                    <i className = "icon-comments_count ">{el.comments}</i> */}
                                     <i className ="reg_date">{el.createdAt}</i>
                                 </div>
-                            </Link>
                         </div>
                     </div>
+                    </Link>
                 )}
-                  <Link className ="board-write-button" to="/board/write" ><button className ="board-write-button hover">글쓰기</button></Link>
             </div>
+            <Link className ="board-write-button" to="/board/write" ><button className ="board-write-button hover">글쓰기</button></Link>
             {list.length > 0 && (
                 <BoardPagination currentPage={currentPage} totalPage={totalPage} 
                 onMove={movePage} />

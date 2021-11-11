@@ -7,7 +7,6 @@ import swal from 'sweetalert';
 
 const UserUpdate = ({userinfo}) => {
 
-	// const history = useHistory();
 
 	const [isValidate, setIsValidate] = useState(false)
     const [errMsg, setErrMsg] = useState('');
