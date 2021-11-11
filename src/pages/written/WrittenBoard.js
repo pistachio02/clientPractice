@@ -45,31 +45,30 @@ const WrittenBoard = () => {
 
     return (
         <>
-            <div className ="cardWrap">   
+            <div className ="cardWrap1">   
             
                 {list.map(el => 
                    <Link to={`board/view/${el.id}`}>
-                    <div className="card1"> 
+                    <div className="card11"> 
                         <div key={el.id}>
                          
-                                <div className="card-header"></div>
-                                <div className="card-body-header">
-                                    <div className = 'someone'>
+                                <div className="card-header1"></div>
+                                <div className="card-body-header1">
+                                    <div className = 'someone1'>
                                          <img src = {noface} alt = ''/>
-                                        <div className = "board-user">{el.user_nickname}</div>
+                                        <div className = "board-user1">{el.user_nickname}</div>
                                     </div>
-                                    <div className="board-title">{el.title}</div>
-                                    <div className = 'board-content'>{el.content}</div>
+                                    <div className="board-title1">{el.title}</div>
+                                    <div className = 'board-content1'>{el.content}</div>
                                 </div>
-                                <div className ="card-body-footer">
-                                    <i className ="reg_date">{el.createdAt}</i>
+                                <div className ="card-body-footer1">
+                                    <i className ="reg_date1">{el.createdAt}</i>
                                 </div>
                         </div>
                     </div>
                     </Link>
                 )}
             </div>
-            <Link className ="board-write-button" to="/board/write" ><button className ="board-write-button hover">글쓰기</button></Link>
             {list.length > 0 && (
                 <BoardPagination currentPage={currentPage} totalPage={totalPage} 
                 onMove={movePage} />

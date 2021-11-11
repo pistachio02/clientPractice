@@ -1,63 +1,94 @@
-.written-body{
-    position: absolute;
-    top: 50%;
-    left: 50%;
+.cardWrap1{
+  margin-left: 40px;
+  margin-bottom: 30px;
 }
-tbody{
-    display: table-row-group;
-    vertical-align: middle;
-    border-color: inherit;
+
+.card11{
+  height: 400px;
+  width: 350px;
+  border-radius: 15px;
+  display: inline-block;
+  margin-top: 30px;
+  margin-left: 30px;
+  margin-bottom: 30px;
+  position: relative;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  overflow: hidden;
+  text-decoration: none;
+  text-decoration-line: none;
 }
-table {
-    margin: 10px auto;
-    width: 80vw;
-    border-collapse: collapse;
-    border-radius: 15px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    color: #eee;
-    background: linear-gradient(90deg, #833ea8, #395091);
-    text-align: center;
-    position: absolute;
-    left: 50%;
-    right: 50%;
-    transform: translate(-50%, -50%);
-  }
-  table tr th{
-    max-width: 80vw;
-    height: 30px;
-    font-size: 18px;
-    color: #eee;
-    text-align: left;
-  }
-  table td,
-  table th {
-    text-align: left;
-    padding: 8px 100px;
-  }
-  table thead {
-    background: rgba(0, 0, 0, 0.1);
-    font-weight: bold;
-    font-size: 14px;
-    text-align: left;
-  }
-  table tbody tr:hover {
-    background-color: rgba(255, 255, 255, 0.3);
-  }
-  table td {
-    text-align: left;
-    position: relative;
-    font-weight: 400;
-    font-size: 14px;
-  }
-  table td:hover::before {
-    text-align: left;
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: -9999px;
-    bottom: -9999px;
-    background-color: rgba(255, 255, 255, 0.3);
-    z-index: -1;
-  }
+
+.card11:hover .card-header1  {
+
+  opacity: 0.8;
+
+  height: 100px;
+
+}
+
+.card-header1{
+  -webkit-transition: 0.5s;
+
+  transition: 0.5s;
+
+  width: 100%;
+
+  height: 270px;
+
+  border-radius: 15px 15px 0 0;
+
+  background-image: url("../board/image/boardCard3.png");
+
+  background-size: 100% 280px;
+
+  background-repeat: no-repeat;
+}
+
+.card-body-header1{
+  line-height: 25px;
+  margin: 10px 20px 0px 20px;
+}
+
+.someone1{
+  display: grid;
+  grid-template-columns: 0.1fr 1fr;
+  margin-bottom: 10px;
+}
+
+.board-user1{
+  text-decoration: none;
+  text-decoration-line: none;
+  color: black;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.board-title1{
+  text-decoration: none;
+  text-decoration-line: none;
+  color: black;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.board-content1{
+  text-decoration: none;
+  color: black;
+  text-decoration-line: none;
+  font-size: 13px;
+}
+
+.card-body-footer1{
+  position: absolute; 
+  margin-top: 15px;
+  margin-bottom: 6px;
+  bottom: 0; 
+  width: 314px;
+  font-size: 14px;
+  color: #9FA5A8;
+  padding: 0 15px;
+}
+
+.reg_date1{
+  float: right;
+}

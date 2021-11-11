@@ -117,7 +117,7 @@ const UserUpdate = ({userinfo}) => {
 					></input>
 				</div>
 
-				<div className = 'validation'>{errMsg}</div>
+				<div className = 'mypage_validation'>{errMsg}</div>
 				<button 
 				type="button"
 				className="user_update_btn"

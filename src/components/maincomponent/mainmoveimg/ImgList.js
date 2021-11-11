@@ -3,7 +3,7 @@ import MoveImglist from './MoveImglist'
 import Search from '../search/Search'
 import Loading from '../../../pages/LoadingPage'
 import * as AiIcons from 'react-icons/ai';
-import '../maincss/Mainpagehome.css'
+import '../maincss/Movecss.css'
 
 
 function MoveImgList({moveImgs, handleMoveCardClick, moveCurrentImgs, search}) {

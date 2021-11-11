@@ -5,7 +5,6 @@ import MainSideBar from '../../components/maincomponent/sidebar/SideBar';
 import {Route, Switch} from 'react-router-dom'
 import Touch from '../../components/maincomponent/touch/Touch';
 import MoveImgList from '../../components/maincomponent/mainmoveimg/ImgList';
-import Home from '../../components/maincomponent/mainhome/Home'
 import axios from 'axios'
 import swal from 'sweetalert'
 
