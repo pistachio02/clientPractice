@@ -45,7 +45,7 @@ function SignupModal() {
 			password = e.target.value;
 
 			if(!isPassword(password)) {
-				return setIsValidationMessage('비밀번호는 4자 이상, 영문과 숫자의 조합이어야 합니다.')
+				return setIsValidationMessage('비밀번호는 4자 이상, 영문과 숫자여야 합니다.')
 			} else if(isPassword(password)) {
 				setuserinfo({...userinfo, password})
 				setIsValidate(true)
