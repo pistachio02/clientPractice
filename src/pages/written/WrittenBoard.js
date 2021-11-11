@@ -41,51 +41,6 @@ const WrittenBoard = () => {
         // 현재 페이지가 변경되면 게시글 목록 호출 함수가 트리거 된다.
         setCurrentPage(pageNo)
     }
-    
-    
-
-    // return (
-    //     <div className ="written-container">
-
-    //     <div className ="written-body">
-    //         <div>   
-    //             <table>
-    //                 <tread>
-    //                     <tr>
-    //                         <th>게시글 번호</th>
-    //                         <th>제목</th>
-    //                         <th>내용</th>
-    //                         <th>작성일</th>
-    //                     </tr>
-    //                         </tread>
-    //                 <tbody>
-
-    //                 {/* 페이지네이션 */}
-    //                 {list.map(el => 
-    //                     <tr>
-    //                         <div key={el.id}> 
-    //                         <td  ><Link to={`/board/view/${el.id}`}>{el.id}</Link></td>
-    //                         <td >{el.title}</td>
-    //                         <td >{el.content}</td>
-    //                         <td >{el.createdAt}</td>
-    //                         </div>
-    //                         </tr>
-    //                         )}
-    //                 </tbody>
-            
-    //             </table>
-    //             </div>
- 
-    //             <div>
-    //             </div> 
-       
-    //             </div>
-    //             {list.length > 0 && (
-    //     <BoardPagination currentPage={currentPage} totalPage={totalPage} 
-    //     onMove={movePage} />
-    //     )}
-    //                         </div>
-    // )
 
     return (
         <>
@@ -100,12 +55,8 @@ const WrittenBoard = () => {
                                     <div className="title-content">{el.title}</div>
                                     <div class = "card-body-nickname">작성자: {el.user_nickname}</div>
                                     <div>{el.content}</div>
-                                    {/* <div class="card-body-hashtag">#ㅇㅏㄴ녀ㅇ</div> */}
                                 </div>
                                 <div className ="card-body-footer">
-                                    {/* <hr className ="hrLine"/> */}
-                                    {/* <i className = "icon-view_count">조회수 : {el.view_count}</i>
-                                    <i className = "icon-comments_count ">{el.comments}</i> */}
                                     <i className ="reg_date">{el.createdAt}</i>
                                 </div>
                             </Link>
@@ -117,7 +68,7 @@ const WrittenBoard = () => {
                 <BoardPagination currentPage={currentPage} totalPage={totalPage} 
                 onMove={movePage} />
             )}
-       </>
+        </>
     )
 }
 

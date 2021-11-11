@@ -15,23 +15,55 @@ function SignupModal() {
     const [isValidate, setIsValidate] = useState(false)
     const [isValidationMessage, setIsValidationMessage] = useState('')
     const [userinfo, setuserinfo] = useState({
+        nickname: '',
         email: '',
         password: '',
-        nickname: '',
     });
+	let nickname = "";
+    let email = "";
+	let password = "";
 
     const history = useHistory();
 
     const handleInputValue = (key) => (e) => {
-        setuserinfo({ ...userinfo, [key]: e.target.value });
-        if(!isEmail(userinfo.email)){
-         setIsValidationMessage('올바른 이메일 형식이 아닙니다 !')
-        }else if(!isPassword(userinfo.password)){
-            setIsValidationMessage('비밀번호는 4글자 이상 영문 숫자를 포함하여야 합니다')
-        }else{
-            setIsValidationMessage('')
-            setIsValidate(true)
-        }
+
+
+        if(key === 'nickname') {
+			nickname = e.target.value;
+
+			setuserinfo({...userinfo, nickname})
+		} else if(key === 'email') {
+			email = e.target.value;
+
+			if(!isEmail(email)){
+				return setIsValidationMessage('이메일 형식에 맞지 않습니다.')
+			} else {
+				setuserinfo({...userinfo, email})
+				return setIsValidationMessage('')
+			}
+		} else if(key === 'password') {
+			password = e.target.value;
+
+			if(!isPassword(password)) {
+				return setIsValidationMessage('비밀번호는 4자 이상, 영문과 숫자의 조합이어야 합니다.')
+			} else if(isPassword(password)) {
+				setuserinfo({...userinfo, password})
+				setIsValidate(true)
+				return setIsValidationMessage('')
+			}
+		}
+
+
+
+        // setuserinfo({ ...userinfo, [key]: e.target.value });
+        // if(!isEmail(userinfo.email)){
+        //  setIsValidationMessage('올바른 이메일 형식이 아닙니다 !')
+        // } else if(!isPassword(userinfo.password)) {
+        //     setIsValidationMessage('비밀번호는 4글자 이상 영문 숫자를 포함하여야 합니다')
+        // } else {
+        //     setIsValidationMessage('')
+        //     setIsValidate(true)
+        // }
     };
 
     const handleSignup = () => {
@@ -51,10 +83,10 @@ function SignupModal() {
         .then((res) => {
            if(res.data === 'E-mail Already Exists!'){
             setIsValidate(false)
-            setIsValidationMessage('중복된 이메일 입니다')
+            setIsValidationMessage('중복된 이메일 입니다.')
            }else if(res.data === 'Nickname Already Exists!'){
             setIsValidate(false)
-            setIsValidationMessage('중복된 닉네임 입니다')
+            setIsValidationMessage('중복된 닉네임 입니다.')
            }else{
              swal("회원가입이 완료되었습니다 !", '', "success")
              .then(() => history.push('/login'))

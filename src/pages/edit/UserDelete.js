@@ -10,22 +10,52 @@ function UserDelete() {
     const history = useHistory();
 
     const deleteUser = () => {
-		axios
-			.delete('https://localhost:4000/unregister', { withCredentials: true })
-			.then(() =>{
-				swal({
-					title: '회원탈퇴 완료.',
-					text: '회원탈퇴 완료되었습니다.',
-					icon: 'success'
-				})
-                .then(() => {
-                    history.push('/');
-                    window.location.reload();
+        swal({
+            title: '안돼요ㅠㅠ가지마세요ㅠㅠ',
+            text: '정말 가실건가요..?😢',
+            icon: 'warning',
+            closeOnClickOutside: false,
+            buttons: {
+                confirm: {
+                    text: "확인",
+                    value: true
+                },
+                cancle: {
+                    text: "취소",
+                    value: false
+                }
+            }
+        })
+        .then((res) => {
+            if(res === true) {
+                axios
+                    .delete('https://localhost:4000/unregister', { withCredentials: true })
+                    .then(() =>{
+                        swal({
+                            title: '회원탈퇴가 완료되었습니다.',
+                            text: '잘가요 내 소중한 사랑, 행복했어요..😢',
+                            icon: 'success'
+                        })
+                        .then(() => {
+                            history.push('/');
+                            window.location.reload();
+                        })
+                    })
+                    .catch((err) => {
+                        console.log(err);
+                    })
+            } else if(res === false) {
+                swal({
+                    title: '잘 생각하셨어요!!😆 🎉',
+                    text: '조금만 더 힐링하고 가세요~👍🏻',
+                    icon: 'success',
+                    closeOnClickOutside: false,
                 })
-			})
-			.catch((err) => {
-				console.log(err);
-			});
+            }
+		})
+        .catch((err) => {
+            console.log(err);
+        })
 	}
 
     const style = {
@@ -43,7 +73,7 @@ function UserDelete() {
             회원 탈퇴를 하시겠습니까?
             </h1>
             <h3 style={style}>
-           😭 회원 탈퇴시 정보가 삭제 됩니다.
+            회원 탈퇴시 모든 정보가 삭제 됩니다.
             </h3>
 
             <button 

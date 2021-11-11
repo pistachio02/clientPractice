@@ -12,48 +12,68 @@ const UserUpdate = ({userinfo}) => {
 	const [isValidate, setIsValidate] = useState(false)
     const [errMsg, setErrMsg] = useState('');
 	const [userForm, setUserForm] = useState({
-		nickname : '',
-		password : '',
-		password2 : ''
+		nickname: "",
+		password: "",
+		password2: ""
 	})
-	const [text, setText] = useState('')
+	let nickname = "";
+	let password = "";
+	let password2 = "";
 
 	const handleForm = (key) => (e) => {
-        setUserForm({ [key]: e.target.value });
-		console.log(userForm.password)
 
+		if(key === 'nickname') {
+			nickname = e.target.value;
 
-        // if(userForm.password && userForm.password2 < 8){
-        // setErrMsg('비밀번호 자릿수는 8자 이상 입력해주세요.');
-        // return;
-        // }
+			setUserForm({...userForm, nickname})
+		} else if(key === 'password') {
+			password = e.target.value;
 
-        // if(userForm.password !== userForm.password2){
-        // setErrMsg('비밀번호가 일치하지 않습니다.')
-        // return;
-        // }
+			if(!isPassword(password)){
+				return setErrMsg('비밀번호 형식에 맞지 않습니다 !')
+			} else {
+				setUserForm({...userForm, password})
+				return setErrMsg('')
+			}
+		} else if(key === 'password2') {
+			password2 = e.target.value;
+
+			if(password2 !== userForm.password) {
+				return setErrMsg('비밀번호가 일치하지 않습니다 !')
+			} else if(password2 === userForm.password) {
+				setUserForm({...userForm, password2})
+				setIsValidate(true)
+				return setErrMsg('')
+			}
+		}
+		
     };
 
 	const updateUser = () => {
-		axios
-			.post('https://localhost:4000/edit', { userForm }, { withCredentials: true })
-			.then((res) => {
-				if(res.data === "Nickname Is Being Used By Other User!"){
-					setErrMsg("이미 사용중인 닉네임입니다 !")
-				} else {
-					swal({
-						title: '수정 완료!',
-						text: '닉네임과 비밀번호가 성공적으로 수정되었습니다!',
-						icon: 'success'
-					})
-					.then(() => {
-						window.location.reload();
-					})
-				}
-			})
-			.catch((err) => {
-				console.log(err);
-			});
+		if(userForm.nickname.length === 0 || userForm.password.length === 0 || userForm.password2.length === 0) {
+            setIsValidate(false)
+            setErrMsg('모든 항목을 입력하여야 합니다 !')
+        } else if(isValidate){
+			axios
+				.post('https://localhost:4000/edit', { userForm }, { withCredentials: true })
+				.then((res) => {
+					if(res.data === "Nickname Is Being Used By Other User!"){
+						setErrMsg("이미 사용중인 닉네임입니다 !")
+					} else {
+						swal({
+							title: '수정 완료!',
+							text: '닉네임과 비밀번호가 성공적으로 수정되었습니다!',
+							icon: 'success'
+						})
+						.then(() => {
+							window.location.reload();
+						})
+					}
+				})
+				.catch((err) => {
+					console.log(err);
+				});
+		}
 	}
 
 	if(userinfo){
